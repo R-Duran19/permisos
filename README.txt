@@ -23,9 +23,12 @@ GENERAR REQUERIMIENTOS (extenciones en txt):
 pip freeze > .\requirements.txt
 
 
+COMMIT DENTRO DE LA RAMA:
+git add .
+git commit -m "ejemplo de descripcion para hacer commits"
+
+
 SINCRONIZAR a GIT: ES IMPORTANTE
 git fetch origin #verifica primero los cambios
 git pull origin master # descarga los cambios
 
-
-viva el Barca 
