@@ -18,4 +18,4 @@ pip install -r .\requirements.txt
 
 GENERAR REQUERIMIENTOS (extenciones en txt):
 
-pip freeze > requirements.txt
+pip freeze > .\requirements.txt
