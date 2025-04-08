@@ -23,5 +23,5 @@ GENERAR REQUERIMIENTOS (extenciones en txt):
 pip freeze > .\requirements.txt
 
 
-ejemplo de git commit:
-hola
+SINCRONIZAR a GIT:
+git pull 
