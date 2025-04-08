@@ -26,3 +26,6 @@ pip freeze > .\requirements.txt
 SINCRONIZAR a GIT: ES IMPORTANTE
 git fetch origin #verifica primero los cambios
 git pull origin master # descarga los cambios
+
+
+Real Madrid perdió 3-0 a Espanyol en la final de la Copa del Rey.
