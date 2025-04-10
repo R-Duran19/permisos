@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +38,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'usuarios',
+    'rest_framework',
 ]
+
+AUTH_USER_MODEL = 'usuarios.UsuarioPersonalizado'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'ricardo.duran@uab.edu.bo'  # cambia esto por tu cuenta
+EMAIL_HOST_PASSWORD = 'zsvy lyky meqe wegq'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,6 +69,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
         'APP_DIRS': True,
+        'DIRS': [BASE_DIR / 'templates'], 
+         'DIRS': [os.path.join(BASE_DIR, 'templates')],  # ¡Importante! # aquí agregas las plantillas globales
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -79,8 +94,8 @@ DATABASES = {
         'NAME': 'db_permisos',
         'USER': 'root',# Tu usuario de la base de datos
         'PASSWORD': '',# Tu contraseña de la base de datos
-        'HOST': 'localhost', # La IP de la base de datos
-        'PORT': '3307', # El puerto de la base de datos
+        'HOST': '127.0.0.1', # La IP de la base de datos
+        'PORT': '3306', # El puerto de la base de datos
     }
 }
 
@@ -94,6 +109,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 6,
+        }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -119,7 +137,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
